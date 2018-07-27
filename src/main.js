@@ -1,19 +1,11 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 
+import Header from './components/header.js';
+import Footer from './components/footer.js';
+
 import './style/app.scss';
 
-class Header extends React.Component {
-
-  render() {
-    return (
-      <header>
-        <h1>Our Counter</h1>
-      </header>
-    );
-  }
-
-}
 
 class App extends React.Component {
 
@@ -55,10 +47,11 @@ class App extends React.Component {
           <a href="#" onClick={this.handleUp} id="up">U</a>
           <a href="#" onClick={this.handleDown} id="down">D</a>
         </div>
+        <Footer />
       </div>
     );
   }
 
 }
 
-ReactDom.render(<App/>, document.getElementById('root'));
+ReactDom.render(<App />, document.getElementById('root'));
