@@ -4,8 +4,8 @@ import cowsay from './cowsay.js';
 import Cowsay from 'react-cowsay';
 
 class Card extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       showMenu: false,
@@ -15,6 +15,8 @@ class Card extends Component {
     this.showMenu = this.showMenu.bind(this);
     this.closeMenu = this.closeMenu.bind(this);
     // this.cowSelect = this.cowSelect.bind(this);
+    this.updateState = this.updateState.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   showMenu(e) {
@@ -35,8 +37,9 @@ class Card extends Component {
     }
   }
 
-handleChange(event, index, value) {
-  this.updateState({ value: 'b' });
+handleChange(event) {
+  this.updateState(event.target.value);
+  console.log('this is the current state', this.state);
 }
 
 // render() {
@@ -49,13 +52,9 @@ handleChange(event, index, value) {
 //  );
 // }
 
-renderOptions() {
-  return this.state.cowSelect;
-
-}
 
   updateState(cowSelect) {
-    this.setState({ cowSelect });
+    this.props.updateCowS(cowSelect);
   }
 
   render() {
@@ -71,11 +70,15 @@ renderOptions() {
                 ref={(element) => {
                   this.dropdownMenu = element;
                 }} >
-                <B.Button onClick={this.cowSelect}> Cow 2 </B.Button>
-                <B.Button value={this.state.cowSelect} onClick={this.handleChange}>
-       {this.renderOptions()} Cow 1 </B.Button>
-                <B.Button onClick={this.cowSelect}> Cow 3 </B.Button>
-                </div>
+ <B.Button value="a" onClick={this.handleChange}>
+       Cow 1 (a) </B.Button>
+
+                <B.Button value="b" onClick={this.handleChange}>
+       Cow 2 (b) </B.Button>
+
+
+ <B.Button value="c" onClick={this.handleChange}>
+       Cow 3 (c) </B.Button>                </div>
                 : null
 
         }
