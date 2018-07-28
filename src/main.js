@@ -1,14 +1,15 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 
+
 import Cowsay from 'react-cowsay';
 
 import faker from 'faker';
 
 import Header from './components/header.js';
 import Footer from './components/footer.js';
-
-import '../src/style/app.scss';
+import Cows from './components/cowsay.js';
+import Card from './components/card.js';
 
 class App extends React.Component {
   constructor(props) {
@@ -34,14 +35,16 @@ class App extends React.Component {
     return (
       <div>
         <Header />
-        <div id="cows">
-          <a href="#" onClick={this.btnCow} id="gen">
+        <Card />
+        <Cows.Wrapper>
+          <Cows.Button primary ><p onClick={this.btnCow} id="gen">
             Generate some text for the cow!
-          </a>
-          <div id="cowsay" className={this.state.fakerLorem}>
-            <Cowsay>{this.state.fakerLorem}</Cowsay>
-          </div>
-        </div>
+          </p>
+          </Cows.Button>
+          <Cows.CowText className={this.state.fakerLorem}>
+            <Cowsay className={this.state.cowSelect} >{this.state.fakerLorem}</Cowsay>
+          </Cows.CowText>
+        </Cows.Wrapper>
         <Footer />
       </div>
     );

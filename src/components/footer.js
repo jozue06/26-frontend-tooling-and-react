@@ -1,8 +1,16 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const Foot = styled.h1`
+  background: papayawhip;
+  font-size: 1.5em;
+  text-align: center;
+  color: palevioletred;
+`;
 
 class Footer extends React.Component {
   render() {
-    return <h1>feets</h1>;
+    return <Foot>feets</Foot>;
   }
 }
 
