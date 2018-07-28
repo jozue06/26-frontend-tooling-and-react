@@ -1,13 +1,14 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 
-import Cowsay from 'react-cowsay';  
+import Cowsay from 'react-cowsay';
 import faker from 'faker';
 import Header from './components/header.js';
 import Footer from './components/footer.js';
 import Cows from './components/cowsay.js';
 import Card from './components/card.js';
 
+import './main.scss';
 
 class App extends React.Component {
   constructor(props) {
@@ -24,7 +25,7 @@ class App extends React.Component {
   }
 
   btnCow(e) {
-    this.updateState(this.state.fakerLorem = faker.lorem.lines(10));
+    this.updateState(this.state.fakerLorem = faker.hacker.phrase());
   }
 
   updateState(fakerLorem) {
@@ -33,10 +34,14 @@ class App extends React.Component {
 
   updateCow(cowSelect) {
     this.setState({ cowSelect });
-    console.log('the new state -->', this.state);
   }
 
   render() {
+    let opts = {
+    };
+
+    opts[this.state.cowSelect] = true;
+
     return (
       <div>
         <Header />
@@ -46,8 +51,8 @@ class App extends React.Component {
             Generate some text for the cow!
           </p>
           </Cows.Button>
-          <Cows.CowText className={this.state.fakerLorem}>
-            <Cowsay className={this.state.cowSelect}>{this.state.fakerLorem}</Cowsay>
+          <Cows.CowText>
+            <Cowsay {...opts}>{this.state.fakerLorem}</Cowsay>
           </Cows.CowText>
         </Cows.Wrapper>
         <Footer />

@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import B from './cowsay.js';
-import cowsay from './cowsay.js';
-import Cowsay from 'react-cowsay';
 
 class Card extends Component {
   constructor(props) {
@@ -39,18 +37,7 @@ class Card extends Component {
 
 handleChange(event) {
   this.updateState(event.target.value);
-  console.log('this is the current state', this.state);
 }
-
-// render() {
-//  return (
-//    <div>
-//      <DropDownMenu value={this.state.selected} onChange={this.handleChange}>
-//        {this.renderOptions()}
-//      </DropDownMenu>
-//    </div>
-//  );
-// }
 
 
   updateState(cowSelect) {
@@ -70,15 +57,25 @@ handleChange(event) {
                 ref={(element) => {
                   this.dropdownMenu = element;
                 }} >
- <B.Button value="a" onClick={this.handleChange}>
-       Cow 1 (a) </B.Button>
+ <B.Button value="d" onClick={this.handleChange}>
+       Cow eyes 1 (a) </B.Button>
 
-                <B.Button value="b" onClick={this.handleChange}>
-       Cow 2 (b) </B.Button>
+ <B.Button value="b" onClick={this.handleChange}>
+       Cow eyes 2 (b) </B.Button>
 
 
- <B.Button value="c" onClick={this.handleChange}>
-       Cow 3 (c) </B.Button>                </div>
+ <B.Button value="p" onClick={this.handleChange}>
+       Cow eyes 3 (p) </B.Button>
+
+ <B.Button value="w" onClick={this.handleChange}>
+       Cow eyes 4 (w) </B.Button>
+
+ <B.Button value="g" onClick={this.handleChange}>
+       Cow eyes 5 (g) </B.Button>
+
+ <B.Button value="s" onClick={this.handleChange}>
+       Cow eyes 6 (s) </B.Button>
+                       </div>
                 : null
 
         }
