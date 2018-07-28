@@ -4,7 +4,7 @@ import ReactDom from 'react-dom';
 import Header from './components/header.js';
 import Footer from './components/footer.js';
 
-import './style/app.scss';
+import '../src/style/app.scss';
 
 
 class App extends React.Component {
