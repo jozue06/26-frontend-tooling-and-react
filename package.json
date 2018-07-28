@@ -44,6 +44,7 @@
     "webpack-merge": "^4.1.3"
   },
   "dependencies": {
+    "faker": "^4.1.0",
     "react-cowsay": "^0.1.0"
   }
 }

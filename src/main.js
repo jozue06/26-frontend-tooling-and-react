@@ -27,7 +27,6 @@ class App extends React.Component {
   }
 
   updateState(fakerLorem) {
-    console.log(fakerLorem);
     this.setState({ fakerLorem });
   }
 
@@ -37,7 +36,7 @@ class App extends React.Component {
         <Header />
         <div id="cows">
           <a href="#" onClick={this.btnCow} id="gen">
-            Generate
+            Generate some text for the cow!
           </a>
           <div id="cowsay" className={this.state.fakerLorem}>
             <Cowsay>{this.state.fakerLorem}</Cowsay>
