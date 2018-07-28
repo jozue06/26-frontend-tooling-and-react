@@ -8,8 +8,6 @@ import Footer from './components/footer.js';
 import Cows from './components/cowsay.js';
 import Card from './components/card.js';
 
-import './main.scss';
-
 class App extends React.Component {
   constructor(props) {
     super(props);
