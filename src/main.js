@@ -1,57 +1,52 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 
+import Cowsay from 'react-cowsay';
+
+import faker from 'faker';
+
 import Header from './components/header.js';
 import Footer from './components/footer.js';
 
 import '../src/style/app.scss';
 
-
 class App extends React.Component {
-
   constructor(props) {
     super(props);
 
-    this.handleDown = this.handleDown.bind(this);
-    this.handleUp = this.handleUp.bind(this);
-    this.updateState = this.updateState.bind(this);
-
     this.state = {
-      counter: 0,
-      polarity: 'neutral',
+      fakerLorem: ''
     };
+
+    this.btnCow = this.btnCow.bind(this);
+    this.updateState = this.updateState.bind(this);
   }
 
-
-  handleUp(e) {
-    this.updateState(this.state.counter + 1);
+  btnCow(e) {
+    this.updateState(this.state.fakerLorem = faker.lorem.lines(10));
   }
 
-  handleDown(e) {
-    this.updateState(this.state.counter - 1);
-  }
-
-  updateState(counter) {
-    let polarity = null;
-    if (counter > 0) { polarity = 'positive'; }
-    if (counter < 0) { polarity = 'negative'; }
-    this.setState({ counter, polarity });
+  updateState(fakerLorem) {
+    console.log(fakerLorem);
+    this.setState({ fakerLorem });
   }
 
   render() {
     return (
       <div>
         <Header />
-        <div id="counterWrapper">
-          <div id="counter" className={this.state.polarity}>{this.state.counter}</div>
-          <a href="#" onClick={this.handleUp} id="up">U</a>
-          <a href="#" onClick={this.handleDown} id="down">D</a>
+        <div id="cows">
+          <a href="#" onClick={this.btnCow} id="gen">
+            Generate
+          </a>
+          <div id="cowsay" className={this.state.fakerLorem}>
+            <Cowsay>{this.state.fakerLorem}</Cowsay>
+          </div>
         </div>
         <Footer />
       </div>
     );
   }
-
 }
 
 ReactDom.render(<App />, document.getElementById('root'));
